@@ -1,6 +1,8 @@
 const express = require("express");
 const { MongoClient, ObjectId } = require("mongodb");
 const cors = require("cors");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,9 +16,19 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static("public"));
 
-let db, tasksCollection;
+// Passport Local Authentication setup
+passport.use(new LocalStrategy((username, password, done) => {
+    // Replace this with actual user lookup and password verification logic
+    User.findOne({ username: username }, function (err, user) {
+        if (err) { return done(err); }
+        if (!user) { return done(null, false); }
+        if (!user.verifyPassword(password)) { return done(null, false); }
+        return done(null, user);
+    });
+}));
 
-// Connect to MongoDB Atlas
+// MongoDB Connection
+let db, tasksCollection;
 MongoClient.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(client => {
         db = client.db(dbName);
@@ -71,6 +83,14 @@ app.delete("/tasks/:id", async (req, res) => {
         res.status(500).json({ error: "Error deleting task" });
     }
 });
+
+// Login Route
+app.post('/login',
+    passport.authenticate('local', { failureRedirect: '/login' }),
+    (req, res) => {
+        res.redirect('/');
+    }
+);
 
 // Start the server
 app.listen(port, () => {
