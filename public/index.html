@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>To Do List</title>
+    <script src="js/main.js"></script>
+    <!-- Add Tailwind CSS CDN -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;200;300;400;500;600;700;800;900&display=swap">
+
+    <!-- Get rid of favicon error -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body class="bg-gray-100 font-sans">
+
+<header class="bg-[#506175] p-4 text-white text-center">
+    <h1 class="text-3xl font-bold">To Do List</h1>
+</header>
+
+<section id="taskSection" class="max-w-4xl mx-auto p-4">
+    <!-- Create Task Section -->
+    <div id="createTask" class="task-form bg-[#cfb0b0] p-6 rounded-lg shadow-md mb-6">
+        <h2 class="text-2xl font-semibold mb-4">Create Task</h2>
+        <form id="listForm" class="space-y-4">
+            <div>
+                <label for="task" class="block font-medium">Task:</label>
+                <input type="text" id="task" name="task" required class="w-full p-2 border border-gray-300 rounded-lg">
+            </div>
+
+            <div>
+                <label for="priority" class="block font-medium">Priority:</label>
+                <select id="priority" name="priority" required class="w-full p-2 border border-gray-300 rounded-lg">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="info" class="block font-medium">Additional Information:</label>
+                <input type="text" id="info" name="info" class="w-full p-2 border border-gray-300 rounded-lg">
+            </div>
+
+            <div>
+                <label for="date" class="block font-medium">Date:</label>
+                <input type="date" id="date" name="date" required class="w-full p-2 border border-gray-300 rounded-lg">
+            </div>
+
+            <button type="submit" class="w-full py-2 bg-[#506175] text-white rounded-lg hover:bg-[#3c5877]">Add Task</button>
+        </form>
+    </div>
+
+    <!-- Edit Task Section -->
+    <div id="editTask" class="task-form bg-[#cfb0b0] p-6 rounded-lg shadow-md mb-6" style="display: none;">
+        <h2 class="text-2xl font-semibold mb-4">Edit Task</h2>
+        <form id="editForm" class="space-y-4">
+            <input type="hidden" id="editIndex">
+            <div>
+                <label for="editTaskName" class="block font-medium">Task:</label>
+                <input type="text" id="editTaskName" name="task" required class="w-full p-2 border border-gray-300 rounded-lg">
+            </div>
+
+            <div>
+                <label for="editPriority" class="block font-medium">Priority:</label>
+                <select id="editPriority" name="priority" required class="w-full p-2 border border-gray-300 rounded-lg">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="editInfo" class="block font-medium">Additional Information:</label>
+                <input type="text" id="editInfo" name="info" class="w-full p-2 border border-gray-300 rounded-lg">
+            </div>
+
+            <div>
+                <label for="editDate" class="block font-medium">Date:</label>
+                <input type="date" id="editDate" name="date" required class="w-full p-2 border border-gray-300 rounded-lg">
+            </div>
+
+            <div class="flex gap-4">
+                <button type="submit" class="w-full py-2 bg-[#506175] text-white rounded-lg hover:bg-[#3c5877]">Save Changes</button>
+                <button type="button" onclick="cancelEdit()" class="w-full py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400">Cancel</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<section id="taskList" class="max-w-4xl mx-auto p-4">
+    <h2 class="text-2xl font-semibold mb-4">Tasks:</h2>
+    <ul id="tasks" class="space-y-2">
+        <!-- List of tasks will go here -->
+    </ul>
+
+    <section id="tableList" class="bg-white p-4 rounded-lg shadow-md mt-6">
+        <h2 class="text-2xl font-semibold mb-4">To Do List Table</h2>
+        <table id="taskTable" class="w-full table-auto border-collapse">
+            <thead>
+            <tr class="bg-[#615b75]">
+                <th class="p-2 border-b">Task</th>
+                <th class="p-2 border-b">Info</th>
+                <th class="p-2 border-b">Priority</th>
+                <th class="p-2 border-b">Date</th>
+                <th class="p-2 border-b">Actions</th>
+            </tr>
+            </thead>
+            <tbody id="taskTableBody">
+            <!-- Table content will go here -->
+            </tbody>
+        </table>
+    </section>
+</section>
+
+</body>
+</html>

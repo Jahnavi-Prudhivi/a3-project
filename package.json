@@ -1,0 +1,21 @@
+{
+  "name": "proj-3",
+  "version": "0.1.0",
+  "description": "WPI CS4241-C25 Assignment A2",
+  "author": "Jahnavi Prudhivi",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@material-tailwind/react": "^2.1.10",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mime": "^2.4.4",
+    "mongoose": "^8.10.0"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "main": "app.js",
+  "license": "ISC"
+}

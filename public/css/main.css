@@ -1,0 +1,87 @@
+/* Layout for the task section */
+#taskSection {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.task-form {
+    width: 45%;  /* Adjust the width for both forms */
+    padding: 20px;
+    background-color: #cfb0b0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1{
+    font-family: Poppins, serif;
+}
+
+h2 {
+    margin-bottom: 10px;
+    font-family: Poppins, serif;
+}
+
+label {
+    display: block;
+    margin: 5px 0;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #506175;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3c5877;
+}
+
+#editTask {
+    display: none;  /* Initially hidden */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    background-color: #fff;
+    width: 45%;
+    box-shadow: 0 4px 8px rgba(101, 91, 91, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+#taskTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#taskTable th, #taskTable td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#taskTable th {
+    background-color: #615b75;
+}
+
+#taskTable button {
+    background-color: #cfb0b0;
+}
+
+#taskTable button:hover {
+    background-color: #807171;
+}
