@@ -1,3 +1,12 @@
+const checkAuth = async () => {
+    const response = await fetch("/auth-status");
+    const result = await response.json();
+
+    if (!result.authenticated) {
+        window.location.href = "login.html"; // Redirect to login page if not authenticated
+    }
+};
+
 const submit = async function(event) {
     event.preventDefault();
 
@@ -83,10 +92,18 @@ const deleteTask = async (id) => {
     updateTaskTable(await response.json());
 };
 
+const logout = async () => {
+    await fetch("/logout", { method: "POST" });
+    window.location.href = "login.html"; // Redirect to login after logout
+};
+
 window.onload = async function() {
+    await checkAuth(); // Check if the user is authenticated before loading the page
+
     const response = await fetch("/tasks");
     updateTaskTable(await response.json());
 
     document.querySelector("#listForm").onsubmit = submit;
     document.querySelector("#editForm").onsubmit = saveEdit;
+    document.querySelector("#logoutButton").onclick = logout; // Ensure there's a logout button
 };
