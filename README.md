@@ -40,6 +40,9 @@ https://github.com/Jahnavi-Prudhivi/a3-project
 
 The LightHouse is:
 ![image](https://github.com/user-attachments/assets/785a793b-4df8-4f6f-bbf1-c20151236fa9)
+
+
+
 ![image](https://github.com/user-attachments/assets/83cbe1b5-e39d-4ece-b99a-c54d0af3a25f)
 
 
