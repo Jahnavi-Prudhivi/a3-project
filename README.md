@@ -1,19 +1,11 @@
 # a3-project
 
-
-### Glitch Link 
-https://a3-jahnavi-prudhivi.glitch.me/
-
-READ ME
-
 Assignment 3
 
 Jahnavi Prudhivi
 
-## Glitch Link:
-
-[https://a3-jnprudhivi.glitch.me/login.html](https://a3-jahnavi-prudhivi.glitch.me/)
-
+### Glitch Link 
+https://a3-jahnavi-prudhivi.glitch.me/
 
 ## GitHub Link:
 
